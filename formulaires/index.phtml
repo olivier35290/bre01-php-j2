@@ -1,0 +1,130 @@
+<?php
+
+function add(int $nb1, int $nb2) : int
+{
+    return $nb1 + $nb2;
+}
+
+function substract(int $nb1, int $nb2) : int
+{
+    return $nb1 - $nb2;
+}
+
+function multiply(int $nb1, int $nb2) : int
+{
+    return $nb1 * $nb2;
+}
+
+function divide(int $nb1, int $nb2) : ? int
+{
+    if($nb2 === 0)
+        return null;
+
+    return $nb1 / $nb2;
+}
+
+function modulo(int $nb1, int $nb2) : ? int
+{
+    if($nb2 === 0)
+        return null;
+
+    return $nb1 % $nb2;
+}
+
+
+$nb1 = null;
+$nb2 = null;
+$op = null;
+$result = null;
+
+if(isset($_POST["nb1"]))
+{
+    $nb1 = (int) $_POST["nb1"];
+}
+
+if(isset($_POST["nb2"]))
+{
+    $nb2 = (int) $_POST["nb2"];
+}
+
+if(isset($_POST["op"]))
+{
+    $op = $_POST["op"];
+}
+
+if($nb1 !== null && $nb2 !== null && $op !== null)
+{
+    if($op === "add")
+    {
+        $result = add($nb1, $nb2);
+    }
+    else if($op === "sub")
+    {
+        $result = substract($nb1, $nb2);
+    }
+    else if($op === "mult")
+    {
+        $result = multiply($nb1, $nb2);
+    }
+    else if($op === "div")
+    {
+        $result = divide($nb1, $nb2);
+    }
+    else if($op === "mod")
+    {
+        $result = modulo($nb1, $nb2);
+    }
+}
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Calculatrice</title>
+    </head>
+    <body>
+        <p>
+            <?php
+
+            if($result !== null)
+            {
+                echo $result;
+            }
+            else
+            {
+                echo "Opération impossible.";
+            }
+
+            ?>
+        </p>
+        <form action="index.phtml" method="post">
+            <fieldset>
+                <label for="nb1">
+                    Nombre 1
+                </label>
+                <input type="number" name="nb1" id="nb1" />
+            </fieldset>
+            <fieldset>
+                <label for="op">
+                    Opération
+                </label>
+                <select name="op" id="op">
+                    <option value="add">+</option>
+                    <option value="sub">-</option>
+                    <option value="mult">*</option>
+                    <option value="div">/</option>
+                    <option value="mod">%</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="nb2">
+                    Nombre 2
+                </label>
+                <input type="number" name="nb2" id="nb2" />
+            </fieldset>
+            <button type="submit">Afficher le résultat</button>
+        </form>
+    </body>
+</html>
