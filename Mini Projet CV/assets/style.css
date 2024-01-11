@@ -1,0 +1,48 @@
+ * {
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fefefe;
+
+}
+
+.container {
+    display: flex;
+    
+}
+.informations {
+    flex: 1;
+    
+}
+.competences {
+    flex: 1;
+}
+
+.informations > label{
+    display: block;
+}
+
+.informations > input{
+    width: 600px;
+    
+}
+
+.bio {
+    padding: 50px;
+}
+h3 {
+    color: #24527c;
+}
+h4 {
+    color: #24527c;
+}
+.submit {
+    margin-left: 10em;
+    width: 600px;
+    background-color: blue;
+    color: white;
+}

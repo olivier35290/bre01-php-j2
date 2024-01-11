@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Exercice require</title>
+        <link rel="stylesheet" href="assets/style.css" />
+    </head>
+    <body>
+        <?php require "templates/header.phtml"; ?>
+        <?php
+            if($route === "home")
+            {
+                require "templates/home.phtml";
+            }
+            else if($route === "about")
+            {
+                require "templates/about.phtml";
+            }
+            else if($route === "contact")
+            {
+                require "templates/contact.phtml";
+            }
+            else
+            {
+                require "templates/home.phtml";
+            }
+        ?>
+        <?php require "templates/footer.phtml"; ?>
+    </body>
+</html>
