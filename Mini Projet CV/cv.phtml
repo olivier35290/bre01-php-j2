@@ -10,14 +10,21 @@
 </head>
     <body>
         <header class="header">
-            <h1></h1>
+            <?php if ($nom!==null && $prenom!==null)
+            {; ?>
+                <h1><? . $nom . ' ' . $prenom . ?></h1>
+                <?php }; ?>
+            }
             <h2></h2>
         </header>
         <main class="container">
             <section class="informations">
                 <h3>INFORMATIONS</h3>
                 <h2>Contact</h2>
-                
+                <ul>
+                    <li>Email [email]</li></br>
+                    <li>Téléphone [telephone]</li></br>
+                </ul>
             </section>    
             
             
